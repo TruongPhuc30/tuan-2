@@ -8,6 +8,26 @@ public class StudentManagement {
             studentCount++;
         }
     }
+    public void removeStudent(String id) {
+        int index = -1;
+        for (int i = 0; i < studentCount; i++) {
+            if (students[i].getId().equals(id)) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index != -1) {
+            for (int j = index; j < studentCount - 1; j++) {
+                students[j] = students[j + 1];
+            }
+            students[studentCount - 1] = null;
+            studentCount--;
+            System.out.println("Đã xóa sinh viên có mã số: " + id);
+        } else {
+            System.out.println("Không tìm thấy sinh viên với mã số: " + id);
+        }
+    }
 
     public static boolean sameGroup(Student s1, Student s2) {
         return s1.getGroup().equals(s2.getGroup());
