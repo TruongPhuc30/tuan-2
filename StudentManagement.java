@@ -97,28 +97,31 @@ public class StudentManagement {
      *
      * @param args Đối số dòng lệnh
      */
-    public static void main(String[] args) {
-        StudentManagement sm = new StudentManagement();
+public static void main(String[] args) {
+    // Tạo danh sách sinh viên
+    Student s1 = new Student("Nguyen Van An", "17020001", "17020001@vnu.edu.vn");
+    s1.setGroup("K62CC");
 
-        Student s1 = new Student("Nguyen Van An", "17020001", "17020001@vnu.edu.vn");
-        s1.setGroup("K62CC");
+    Student s2 = new Student("Nguyen Van B", "17020002", "17020002@vnu.edu.vn");
+    s2.setGroup("K62CC");
 
-        Student s2 = new Student("Nguyen Van B", "17020002", "17020002@vnu.edu.vn");
-        s2.setGroup("K62CC");
+    Student s3 = new Student("Nguyen Van C", "17020003", "17020003@vnu.edu.vn");
+    s3.setGroup("K62CB");
 
-        Student s3 = new Student("Nguyen Van C", "17020003", "17020003@vnu.edu.vn");
-        s3.setGroup("K62CB");
+    Student s4 = new Student("Nguyen Van D", "17020004", "17020004@vnu.edu.vn");
+    s4.setGroup("K62CB");
 
-        Student s4 = new Student("Nguyen Van D", "17020004", "17020004@vnu.edu.vn");
-        s4.setGroup("K62CB");
+    // Khởi tạo hệ thống quản lý sinh viên và thêm sinh viên
+    StudentManagement sm = new StudentManagement();
+    sm.addStudent(s1);
+    sm.addStudent(s2);
+    sm.addStudent(s3);
+    sm.addStudent(s4);
 
-        sm.addStudent(s1);
-        sm.addStudent(s2);
-        sm.addStudent(s3);
-        sm.addStudent(s4);
+    // Kiểm tra sinh viên cùng nhóm
+    System.out.println("Cùng lớp: " + StudentManagement.sameGroup(s1, s2));
 
-        System.out.println("Cùng lớp: " + StudentManagement.sameGroup(sm.students[0], sm.students[1]));
-        System.out.println("\n--- Danh sách sinh viên theo nhóm ---");
-        System.out.println(sm.studentsByGroup());
-    }
+    // In danh sách sinh viên theo nhóm
+    System.out.println("\n--- Danh sách sinh viên theo nhóm ---");
+    System.out.println(sm.studentsByGroup());
 }
